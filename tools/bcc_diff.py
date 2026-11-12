@@ -84,6 +84,13 @@ def build(tool_dir, recomp, name, src, out, env):
     ilink = os.path.join(BUILD, 'ilink32recomp.exe') if recomp else os.path.join(tool_dir, 'ilink32.exe')
     base = os.path.basename(src)
     rc1, log1 = run([bcc, '-c'] + flags + ['-I' + inc, base], out, env)
+    # ilink32 reads a '-' anywhere in an -L path as a new switch ("Fatal:
+    # Illegal option"), and a ZIP download unpacks to bcc55-recomp-main, so
+    # the library path goes in relative to out/, below the repo folder.
+    try:
+        lib = os.path.relpath(lib, out)
+    except ValueError:                      # --bin on another drive: no relative path
+        pass
     rc2, log2 = run([ilink, '-L' + lib, '-L' + os.path.join(lib, 'PSDK'), '-Tpe', app, '-x', '-c', '-Gn',
                      c0, name + '.obj,', name + '.exe,', ',', 'import32.lib', rtl], out, env)
     rd = lambda f: open(os.path.join(out, f), 'rb').read() if os.path.exists(os.path.join(out, f)) else b''  # noqa: E731

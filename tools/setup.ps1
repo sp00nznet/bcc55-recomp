@@ -1,5 +1,5 @@
 # One-click setup for the BCC 5.5 static recompilation. Run it by
-# double-clicking Setup.cmd in the repo folder; the README's "Step by step" is
+# double-clicking Setup.cmd in the repo folder; docs/building.md is
 # the same thing by hand, command for command.
 #
 # It checks the tools, copies your Borland C++ 5.5 folder into game\ (and
@@ -181,7 +181,7 @@ foreach ($t in 'bcc32', 'ilink32') {
 }
 
 # ---------------------------------------------------------------- build
-Step 5 "Building build\bcc32recomp.exe and build\ilink32recomp.exe (about 10 minutes)"
+Step 5 "Building build\bcc32recomp.exe and build\ilink32recomp.exe (about 3 minutes)"
 if ((Test-Path 'build\bcc32recomp.exe') -and (Test-Path 'build\ilink32recomp.exe') -and -not $Force) { Say "  Already built (skipping)." }
 else {
   $env:CMAKE_ARGS = "-DPCRECOMP=$($Toolkit -replace '\\', '/')"

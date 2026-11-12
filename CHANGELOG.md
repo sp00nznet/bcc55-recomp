@@ -4,6 +4,27 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- `CONTRIBUTING.md`, `CONTRIBUTORS.md`, `docs/building.md` (the setup steps
+  by hand, the hosts' settings) and `docs/testing.md` (the harness).
+- `setup.sh`, which says there is no Linux or macOS build yet and exits.
+- `.github/workflows/installer.yml`, run by hand only (private repo).
+
+### Changed
+- README in the house order: Getting Started, Status (what the harness
+  proves), Screenshots, Documentation, Contributors, License.
+- `NOTICE` is now `NOTICE.md`, saying what the MIT licence covers and what it
+  doesn't.
+
+### Fixed
+- `tools/bcc_diff.py` failed 0/6 in any folder whose path has a `-` in it
+  (a ZIP download unpacks to `bcc55-recomp-main`): ilink32, the original
+  too, reads the `-` in an absolute `-L` path as a switch (`Fatal: Illegal
+  option`). The library path now goes in relative to the output folder.
+  Found by the fresh-clone Setup test.
+
 ## [0.1.0] - 2026-11-12
 
 ### Added
