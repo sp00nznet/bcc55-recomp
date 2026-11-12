@@ -181,7 +181,7 @@ are environment variables:
 The host prints one line of its own, `[bind] ...`, on stderr; stdout carries
 only the tool's output.
 
-The harness, `py -3 tools\bcc_diff.py [--keep] [name ...]`, builds each
+The harness, `py -3 tools\bcc_diff.py [--recomp build\bcc32recomp.exe] [--keep] [name ...]`, builds each
 program in `tests/` twice (original tools, recompiled tools) under
 `out\diff\<name>\{orig,recomp}`, and compares the `.obj`, the `.exe`, the
 tools' console output, and what each built program prints against
