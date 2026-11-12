@@ -184,7 +184,7 @@ foreach ($t in 'bcc32', 'ilink32') {
 Step 5 "Building build\bcc32recomp.exe and build\ilink32recomp.exe (about 10 minutes)"
 if ((Test-Path 'build\bcc32recomp.exe') -and (Test-Path 'build\ilink32recomp.exe') -and -not $Force) { Say "  Already built (skipping)." }
 else {
-  $env:CMAKE_ARGS = "-DPCRECOMP=$($Toolkit -replace '\', '/')"
+  $env:CMAKE_ARGS = "-DPCRECOMP=$($Toolkit -replace '\\', '/')"
   Run "Compiling" @('cmd', '/d', '/c', "`"$Root\build.cmd`"")
 }
 
