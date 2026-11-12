@@ -1,0 +1,17 @@
+{
+  "title": "Borland C++ 5.5",
+  "repo": "sp00nznet/bcc55-recomp",
+  "accent": "#8a2b2b",
+  "note": {
+    "windows": "The build takes about 10 minutes and 1 GB. Python and the Visual Studio Build Tools are installed if they are missing; the Build Tools are about 3 GB and add 15 to 30 minutes, and Windows asks for permission once. Point it at your BCC55 folder (the one holding Bin\\bcc32.exe)."
+  },
+  "game": {
+    "name": "Borland C++ 5.5.1 Free Command-Line Tools",
+    "files": ["Bin/bcc32.exe|BCC55/Bin/bcc32.exe", "Bin/ilink32.exe|BCC55/Bin/ilink32.exe"]
+  },
+  "sources": [{ "repo": "sp00nznet/pcrecomp", "ref": "pcrecomp-bcc55", "dir": "pcrecomp" }],
+  "setup": {
+    "windows": ["cmd", "/c", "Setup.cmd", "-Yes", "-GameDir", "{game}"]
+  },
+  "play": "BCC55 Recomp Prompt.lnk"
+}

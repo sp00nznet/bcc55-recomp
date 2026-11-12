@@ -1,0 +1,8 @@
+  ~g0
+  ~gn
+  ~gn
+  middle rethrows
+caught derived 7 live=0
+caught string text
+SEH caught access violation
+done live=0
