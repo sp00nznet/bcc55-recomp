@@ -11,7 +11,7 @@ build/bcc32recomp.exe, link each .obj with the matching ilink32, then
   3. the tools' own console output must match,
   4. both programs must run and print what tests/<name>.expect says.
 
-    py -3 tools/bcc_diff.py [--bin game/Bin] [--keep] [name ...]
+    py -3 tools/bcc_diff.py [--bin game/Bin] [--recomp build/bcc32recomp.exe] [--keep] [name ...]
 
 Exit 0 when every test passes. Without the original tools it prints SKIP.
 """
@@ -105,8 +105,11 @@ def run_program(name, out, env):
 
 
 def main():
+    global BUILD
     ap = argparse.ArgumentParser()
     ap.add_argument('--bin', default=os.path.join(HERE, 'game', 'Bin'), help='the original BCC55\\Bin')
+    ap.add_argument('--recomp', default=os.path.join(BUILD, 'bcc32recomp.exe'),
+                    help='the recompiled bcc32; ilink32recomp.exe is beside it')
     ap.add_argument('--out', default=os.path.join(HERE, 'out', 'diff'))
     ap.add_argument('--keep', action='store_true', help='keep out/diff afterwards')
     ap.add_argument('names', nargs='*')
@@ -115,9 +118,10 @@ def main():
     if not os.path.exists(os.path.join(tool_dir, 'bcc32.exe')):
         print('SKIP: no bcc32.exe in %s (README, Getting started)' % tool_dir)
         return 0
+    BUILD = os.path.dirname(os.path.abspath(args.recomp))
     for t in ('bcc32recomp.exe', 'ilink32recomp.exe'):
         if not os.path.exists(os.path.join(BUILD, t)):
-            sys.exit('no build/%s -- run build.cmd' % t)
+            sys.exit('no %s -- run build.cmd' % os.path.join(BUILD, t))
     env = dict(os.environ, BCC55_BIN=tool_dir, BCC55_WATCHDOG='120')
     if os.path.exists(args.out):
         shutil.rmtree(args.out)
