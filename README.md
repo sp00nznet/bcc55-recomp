@@ -11,8 +11,8 @@ calls the real kernel32 and user32. It runs Borland's code; it is not a
 rewrite. A compiler is the easiest program there is to check: the original
 and the recompiled one, given the same input, must write the same bytes.
 
-Built on the [pcrecomp](https://github.com/sp00nznet/pcrecomp) toolchain,
-branch **`pcrecomp-bcc55`** (not yet merged to `main`), and following its
+Built on the [pcrecomp](https://github.com/sp00nznet/pcrecomp) toolchain
+(`main`), and following its
 shared house style.
 
 ![The conformance harness: 6 of 6 byte-identical](docs/screenshots/harness.png)
@@ -36,7 +36,7 @@ machine from your copy.
 
 The script asks before installing anything (Python 3.10+, `pefile` and
 `capstone`, git, the Visual Studio 2022 Build Tools), clones pcrecomp
-`pcrecomp-bcc55` beside the repository, finds Borland C++ in
+`main` beside the repository, finds Borland C++ in
 `C:\Borland\BCC55` or asks where it is, then catalogs, lifts and builds both
 tools and runs the conformance harness. It takes about 15 minutes with the
 tools already installed; a rerun skips finished steps, and the details go to
@@ -78,7 +78,7 @@ Win32 GUI program; each one built by the recompiled tools also runs and
 prints what its `tests/*.expect` says. Not covered yet: `bcc32` without `-c`
 starts the *original* `ilink32.exe`, and `RLINK32.DLL` and `LNKDFM50.DLL`,
 which ilink32 loads, run as native code. Tested against pcrecomp
-`pcrecomp-bcc55`.
+`main`.
 
 [bringup.md](docs/bringup.md) is the log of each wall and its fix, and
 [ROADMAP.md](ROADMAP.md) what comes next.

@@ -111,8 +111,7 @@ if (-not (Test-Path (Join-Path $Toolkit 'tools\lift\lift32.py'))) {
     if (-not (Get-Command git -ErrorAction SilentlyContinue)) { Fail "Git did not install. Install Git for Windows yourself." }
   }
   if (-not (Ask "  Download it now (git, about 20 MB)?")) { Fail "pcrecomp is required at $Toolkit." }
-  # The branch with this project's toolkit fixes, until it is merged.
-  Run "Cloning pcrecomp" @('git', 'clone', '--depth', '1', '-b', 'pcrecomp-bcc55', 'https://github.com/sp00nznet/pcrecomp', $Toolkit)
+  Run "Cloning pcrecomp" @('git', 'clone', '--depth', '1', 'https://github.com/sp00nznet/pcrecomp', $Toolkit)
 }
 Say "  pcrecomp: $Toolkit"
 

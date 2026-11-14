@@ -8,13 +8,13 @@ output is already there. This is the same thing by hand.
 Windows 10/11, **Python 3.10+** (`py -3 --version`), **git**, **Visual Studio
 2022** (or its Build Tools) with *Desktop development with C++*, your own
 **Borland C++ 5.5 Free Command-Line Tools** (the `BCC55` folder), and the
-pcrecomp toolkit cloned **beside** this repository as `pcrecomp`, on branch
-**`pcrecomp-bcc55`** (on `main` the lifted bcc32 loops forever in its
-preprocessor, `ITAIL: unresolved VA 0x0048E222`; see bringup.md):
+pcrecomp toolkit cloned **beside** this repository as `pcrecomp`, on `main`
+(an older toolkit's lifted bcc32 loops forever in its preprocessor,
+`ITAIL: unresolved VA 0x0048E222`; see bringup.md):
 
 ```
 some-folder\
-  pcrecomp\     <- git clone -b pcrecomp-bcc55 https://github.com/sp00nznet/pcrecomp
+  pcrecomp\     <- git clone https://github.com/sp00nznet/pcrecomp
   bcc55\        <- this repository
 ```
 
@@ -73,8 +73,8 @@ The binaries must be 5.5.1 (`bcc32.exe` PE stamp `0x3989C322`, `ilink32.exe`
 The usual trip-ups: `python` opening the Microsoft Store (that is Windows'
 alias placeholder; use `py -3`, or turn the alias off in *Settings > Apps >
 Advanced app settings > App execution aliases*); a freshly installed Python
-not being on `PATH` until you open a new window; the toolkit on `main`
-instead of `pcrecomp-bcc55`; and ilink32 stopping with `Fatal: Illegal
+not being on `PATH` until you open a new window; an old toolkit
+checkout (update it to `main`); and ilink32 stopping with `Fatal: Illegal
 option` when a path in its `-L` has a `-` in it (Borland's own linker does
 the same): use a relative path, as `toolscc_diff.py` does.
 

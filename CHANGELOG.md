@@ -13,6 +13,7 @@ All notable changes to this project are documented here. The format follows
 - `.github/workflows/installer.yml`, run by hand only (private repo).
 
 ### Changed
+- Builds against pcrecomp main; the `pcrecomp-bcc55` branch is merged.
 - README in the house order: Getting Started, Status (what the harness
   proves), Screenshots, Documentation, Contributors, License.
 - `NOTICE` is now `NOTICE.md`, saying what the MIT licence covers and what it

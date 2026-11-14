@@ -1,7 +1,7 @@
 # Roadmap
 
 ## Done
-- `bcc32` and `ilink32` lifted with 0 errors, on pcrecomp `pcrecomp-bcc55`.
+- `bcc32` and `ilink32` lifted with 0 errors, on pcrecomp `main`.
 - `tools/bcc_diff.py`: 6/6 programs byte-identical to the originals' output.
 - `Setup.cmd`, from the ZIP download to a prompt shortcut.
 
@@ -18,7 +18,6 @@
   section 9): a `conformance.json` baseline, like hover's.
 - A netlab test-VM run of the harness (the recipe is
   `projects/bcc55-recomp.env` in recomp-netlab).
-- pcrecomp `pcrecomp-bcc55` merged to `main`, so setup can use `main`.
 - A Linux build (`setup.sh` exits today): pcrecomp's win32hle under it, or
   the Windows build under Wine.
 
