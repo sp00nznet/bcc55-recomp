@@ -6,11 +6,13 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-11-20
+
 ### Added
 - `CONTRIBUTING.md`, `CONTRIBUTORS.md`, `docs/building.md` (the setup steps
   by hand, the hosts' settings) and `docs/testing.md` (the harness).
 - `setup.sh`, which says there is no Linux or macOS build yet and exits.
-- `.github/workflows/installer.yml`, run by hand only (private repo).
+- `.github/workflows/installer.yml`, on push and v* tags.
 
 ### Changed
 - Builds against pcrecomp main; the `pcrecomp-bcc55` branch is merged.
